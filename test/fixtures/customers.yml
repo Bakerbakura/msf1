@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Email: MyString
+  Name: MyString
+  Gender: MyString
+  ShoeSize: 1.5
+  ShoeSizeError: 1.5
+  password: MyString
+  EncryptedPassword: MyString
+  password_digest: MyString
+
+two:
+  Email: MyString
+  Name: MyString
+  Gender: MyString
+  ShoeSize: 1.5
+  ShoeSizeError: 1.5
+  password: MyString
+  EncryptedPassword: MyString
+  password_digest: MyString
