@@ -34,4 +34,7 @@ Myshoefits::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # eager_load config
+  config.eager_load = false
 end
