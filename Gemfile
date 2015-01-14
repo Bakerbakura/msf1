@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
 
+#Declare Ruby version
+ruby '2.1.5'
+
 gem 'rails', '4.1.8'
 
 # Bundle edge Rails instead:
