@@ -8,15 +8,14 @@ class CustomersController < ApplicationController
 	end
 
 	def create
-		@parms = params[:customer]
+		@parms = customer_params
 		@lessparms = @parms.reject{|k,v| k == "Email_confirmation"}
-		puts @lessparms
+		# puts @lessparms
 		if @parms["Email"] == @parms["Email_confirmation"]
 			@customer = Customer.new(@lessparms)
 			@customer.save
 			session[:CustID] = @customer.CustID
-			session[:preferredSizeType] = Sizetype.
-					find_by_SizeType(@customer.preferredSizeType)
+			session[:preferredSizeType] = Sizetype.find_by_SizeType(@customer.preferredSizeType)
 			redirect_to home_path
 		else
 			redirect_to signup_path
@@ -60,4 +59,9 @@ class CustomersController < ApplicationController
 		@parms["prediction"] = results[0]
 		@parms["error"] = results[1]
 	end
+
+	private
+		def customer_params
+			params.require(:customer).permit(:Email,:Email_confirmation,:Gender,:password)
+		end
 end
