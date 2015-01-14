@@ -4,15 +4,25 @@ Myshoefits::Application.routes.draw do
   root :to => 'welcome#index'
 
   resources :customers, only: [:create, :index]
-  match "signup",   to: "customers#new",            via: :get
-  match "home",     to: "customers#home",           via: :get
-  match "addshoe",  to: "customers#addshoe",        via: :post
-  match "delshoe",  to: "customers#delshoe",        via: :delete
-  match "predict",  to: "customers#predict"
+  # match "signup",   to: "customers#new",            via: :get
+  # match "home",     to: "customers#home",           via: :get
+  # match "addshoe",  to: "customers#addshoe",        via: :post
+  # match "delshoe",  to: "customers#delshoe",        via: :delete
+  # match "predict",  to: "customers#predict"
   
-  match "signin",   to: "sessions#signin",          via: :get
-  match "signin",   to: "sessions#signin_attempt",  via: :post
-  match "signout",  to: "sessions#signout"
+  # match "signin",   to: "sessions#signin",          via: :get
+  # match "signin",   to: "sessions#signin_attempt",  via: :post
+  # match "signout",  to: "sessions#signout"
+
+  get     "signup",   to: "customers#new",            via: :get
+  get     "home",     to: "customers#home",           via: :get
+  post    "addshoe",  to: "customers#addshoe",        via: :post
+  delete  "delshoe",  to: "customers#delshoe",        via: :delete
+  get     "predict",  to: "customers#predict"
+  
+  get   "signin",   to: "sessions#signin",          via: :get
+  post  "signin",   to: "sessions#signin_attempt",  via: :post
+  get   "signout",  to: "sessions#signout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
