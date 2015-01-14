@@ -1,4 +1,4 @@
 class Gender < ActiveRecord::Base
-  attr_accessible :Gender
+  # attr_accessible :Gender
   self.primary_key = :Gender
 end
