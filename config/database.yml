@@ -9,7 +9,7 @@ development:
   username: root
   password: ascoobus
   host: localhost
-  port: 3307
+  port: 3306
   pool: 5
   timeout: 5000
 
@@ -22,7 +22,7 @@ test:
   username: root
   password: ascoobus
   host: localhost
-  port: 3307
+  port: 3306
   pool: 5
   timeout: 5000
 
@@ -32,6 +32,6 @@ production:
   username: root
   password: ascoobus
   host: localhost
-  port: 3307
+  port: 3306
   pool: 5
   timeout: 5000

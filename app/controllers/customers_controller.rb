@@ -1,14 +1,13 @@
 class CustomersController < ApplicationController
 	
-	before_filter :authenticate_customer, 
-		:only => [:home, :addshoe, :delshoe, :predict]
-	before_filter :save_login_state, :only => [:new, :create]
+	before_filter :authenticate_customer,	:only => [:home, :addshoe, :delshoe, :predict]
+	before_filter :save_login_state,			:only => [:new, :create]
 
 	def new
 	end
 
 	def create
-		@parms = customer_params
+		@parms = newcustomer_params
 		@lessparms = @parms.reject{|k,v| k == "Email_confirmation"}
 		# puts @lessparms
 		if @parms["Email"] == @parms["Email_confirmation"]
@@ -18,6 +17,7 @@ class CustomersController < ApplicationController
 			session[:preferredSizeType] = Sizetype.find_by_SizeType(@customer.preferredSizeType)
 			redirect_to home_path
 		else
+			flash[:warning] = "Your email address was not entered correctly."
 			redirect_to signup_path
 		end
 	end
@@ -31,7 +31,7 @@ class CustomersController < ApplicationController
 	end
 
 	def addshoe
-		@parms = params[:newshoe]
+		@parms = newshoe_params
 		newShoe = Shoe.new(@parms)
 		newPreSize = Shoe.sizeToPreSize(@parms[:Size], @parms[:SizeType], @parms[:LengthFit])
 		if (not @customer.ShoeSize) or (newPreSize - @customer.ShoeSize).abs <= 30.0
@@ -45,7 +45,7 @@ class CustomersController < ApplicationController
 	end
 
 	def delshoe
-		@parms = params[:delshoe]
+		@parms = delshoe_params
 		Shoe.find_by_ShoeID(@parms[:ShoeID]).destroy
 		Customer.updateShoeStats(@customer.CustID)
 
@@ -53,7 +53,7 @@ class CustomersController < ApplicationController
 	end
 
 	def predict
-		@parms = params[:predic]
+		@parms = predic_params
 		Customer.establish_connection
 		results = Customer.predictSizeToBuy(@parms[:CustID], @parms[:Brand], @parms[:Style], @parms[:Material], @parms[:SizeType])
 		@parms["prediction"] = results[0]
@@ -61,7 +61,19 @@ class CustomersController < ApplicationController
 	end
 
 	private
-		def customer_params
-			params.require(:customer).permit(:Email,:Email_confirmation,:Gender,:password)
+		def newcustomer_params
+			params.require(:customer).permit(:Email, :Email_confirmation, :Gender, :password, :password_confirmation, :preferredSizeType)
+		end
+
+		def newshoe_params
+			params.require(:newshoe).permit(:OwnerID, :Brand, :Style, :Material, :Size, :SizeType, :LengthFit)
+		end
+
+		def delshoe_params
+			params.require(:delshoe).permit(:ShoeID)
+		end
+
+		def predic_params
+			params.require(:predic).permit(:CustID, :Brand, :Style, :Material, :SizeType)
 		end
 end

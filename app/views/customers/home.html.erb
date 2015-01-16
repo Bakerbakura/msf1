@@ -1,5 +1,4 @@
 <h2>My Info</h2>
-
 <table class="table">
 	<tr class="row">
 		<div class="col-md-2"></div>
@@ -40,7 +39,6 @@
 </table>
 
 <h2>My Shoes</h2>
-
 <table class="table">
 	<thead>
 		<tr class="row">
@@ -75,7 +73,7 @@
 				<td><%= s.collection_select :Style, Shoestyle.all, :Style, :Style, {}, {class: "form-control"} %></td>
 				<td><%= s.collection_select :Material, Shoematerial.all, :Material, :Material, {}, {class: "form-control"} %></td>
 				<% tempST = Sizetype.find_by_SizeType(@customer.preferredSizeType) %>
-				<td><%= s.select :Size, (tempST.MinSize..tempST.MaxSize).step(tempST.SizeTypeInterval), {}, {class: "form-control"} %> </td>
+				<td><%= s.select :Size, (tempST.MinSize..tempST.MaxSize).step(tempST.SizeTypeInterval).to_a, {}, {class: "form-control"} %> </td>
 				<%= s.hidden_field :SizeType, value: tempST.SizeType %>
 				<td><%= s.collection_select :LengthFit, Lengthfit.all, :LengthFit, :LengthFit, {}, {class: "form-control"} %></td>
 				<td><%= s.submit "Add new shoe", class: "btn btn-success btn-block" %></td>
@@ -85,7 +83,6 @@
 </table>
 
 <h2>Shoe Prediction</h2>
-
 <% if @shoes.count >= 3 %>
 	<p>Fill in the details of the shoe you intend to buy, and we'll tell you which size you should take!</p>
 	<table class="table">

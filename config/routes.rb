@@ -14,14 +14,15 @@ Myshoefits::Application.routes.draw do
   # match "signin",   to: "sessions#signin_attempt",  via: :post
   # match "signout",  to: "sessions#signout"
 
-  get     "signup",   to: "customers#new",            via: :get
-  get     "home",     to: "customers#home",           via: :get
-  post    "addshoe",  to: "customers#addshoe",        via: :post
-  delete  "delshoe",  to: "customers#delshoe",        via: :delete
+  get     "signup",   to: "customers#new"
+  get     "home",     to: "customers#home"
+  post    "addshoe",  to: "customers#addshoe"
+  delete  "delshoe",  to: "customers#delshoe"
   get     "predict",  to: "customers#predict"
+  get     "index",    to: "customers#index"
   
-  get   "signin",   to: "sessions#signin",          via: :get
-  post  "signin",   to: "sessions#signin_attempt",  via: :post
+  get   "signin",   to: "sessions#signin"
+  post  "signin",   to: "sessions#signin_attempt"
   get   "signout",  to: "sessions#signout"
 
   # The priority is based upon order of creation:

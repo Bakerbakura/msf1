@@ -10,10 +10,8 @@
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-</head>
 
-<body>
-	<header class="navbar navbar-default navbar-inverse" role="navigation">
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle button -->
 			<div class="navbar-header">
@@ -39,8 +37,11 @@
 				</ul>
 			</div><!-- end navbar-collapse -->
 		</div> <!-- end container-fluid -->
-	</header>
+	</nav>
 
+</head>
+
+<body>
 	<div class="container center hero-unit">
 		<%= flash_messages %>
 		<%= yield %>
