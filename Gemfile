@@ -61,3 +61,8 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+# Populate seeds.rb file in development environment
+group :development do
+	gem 'seed_dump'
+end
