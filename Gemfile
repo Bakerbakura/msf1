@@ -50,9 +50,10 @@ gem 'tzinfo-data'
 # To force use of installed Rake
 # gem 'rake', '~>10.2.2'
 
-# Use unicorn as the app server in Heroku production
+# Use unicorn as the app server and use recommended 'rails_12factor' gem in Heroku production
 group :production do
 	gem 'unicorn'
+	gem 'rails_12factor'
 end
 
 # Deploy with Capistrano
