@@ -1,8 +1,8 @@
 Sizetype.create!([
-  {SizeType: "Europe", ToMondo1: 6.66667, ToMondo0: -10.0, SizeTypeInterval: 0.5, MinSize: 32.0, MaxSize: 49.0},
-  {SizeType: "Mondopoint", ToMondo1: 1.0, ToMondo0: 0.0, SizeTypeInterval: 5.0, MinSize: 200.0, MaxSize: 320.0},
-  {SizeType: "UK/Australia", ToMondo1: 8.46667, ToMondo0: 201.667, SizeTypeInterval: 0.5, MinSize: 0.0, MaxSize: 14.0},
-  {SizeType: "US/Canada", ToMondo1: 8.46667, ToMondo0: 292.0, SizeTypeInterval: 0.5, MinSize: 1.0, MaxSize: 15.0}
+  {SizeType: "Europe",        ToMondo1: 6.66667,  ToMondo0: -10.0,    SizeTypeInterval: 0.5,  MinSize: 32.0,  MaxSize: 49.0},
+  {SizeType: "Mondopoint",    ToMondo1: 1.0,      ToMondo0: 0.0,      SizeTypeInterval: 5.0,  MinSize: 200.0, MaxSize: 320.0},
+  {SizeType: "UK/Australia",  ToMondo1: 8.46667,  ToMondo0: 201.667,  SizeTypeInterval: 0.5,  MinSize: 0.0,   MaxSize: 14.0},
+  {SizeType: "US/Canada",     ToMondo1: 8.46667,  ToMondo0: 292.0,    SizeTypeInterval: 0.5,  MinSize: 1.0,   MaxSize: 15.0}
 ])
 Gender.create!([
   {Gender: "F"},
@@ -115,7 +115,7 @@ Shoematerial.create!([
   {Material: "Rubber"}
 ])
 Shoestyle.create!([
-  {Style: "Balmoral"},
+  {Style: "Boot"},
   {Style: "Boat Shoe"},
   {Style: "Brouge"},
   {Style: "Cross Trainer"},
@@ -131,6 +131,8 @@ Shoestyle.create!([
   {Style: "Runner"},
   {Style: "Saddle Shoe"},
   {Style: "Sandal"},
+  {Style: "Slipper"},
+  {Style: "Sneaker"},
   {Style: "Tennis"},
   {Style: "Walker"},
   {Style: "Wingtip"},

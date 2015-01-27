@@ -66,3 +66,6 @@ end
 group :development do
 	gem 'seed_dump'
 end
+
+# Used for statistical calculation purposes
+gem 'descriptive_statistics', '~> 2.4.0', :require => 'descriptive_statistics/safe'
